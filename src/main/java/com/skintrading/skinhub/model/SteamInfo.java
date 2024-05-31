@@ -9,7 +9,7 @@ public class SteamInfo
 	private String steamInventoryLink;
 	private boolean isBanned;
 	
-	
+	//Por enquanto não será usado pois será feito primeiramente com um loggin normal
 	
 	public String getSteamName()
 	{

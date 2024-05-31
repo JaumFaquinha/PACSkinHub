@@ -1,7 +1,5 @@
 package com.skintrading.skinhub.model;
 
-import jakarta.annotation.Generated;
-import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
@@ -18,24 +16,30 @@ public class BaseGun
 	private EquipmentType equipmentType;
 
 
-	public String getName() {
-		return name;
+	public String getName()
+	{
+		return this.name;
 	}
-	public void setName(String name) {
+	public void setName(String name) 
+	{
 		this.name = name;
 	}
 
-	public Skin getSkin() {
-		return skin;
+	public Skin getSkin() 
+	{
+		return this.skin;
 	}
-	public void setSkin(Skin skin) {
+	public void setSkin(Skin skin) 
+	{
 		this.skin = skin;
 	}
 
-	public EquipmentType getEquipmentType() {
-		return equipmentType;
+	public EquipmentType getEquipmentType()
+	{
+		return this.equipmentType;
 	}
-	public void setEquipmentType(EquipmentType equipmentType) {
+	public void setEquipmentType(EquipmentType equipmentType)
+	{
 		this.equipmentType = equipmentType;
 	}
 
