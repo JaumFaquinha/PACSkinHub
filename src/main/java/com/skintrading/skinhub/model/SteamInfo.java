@@ -1,8 +1,17 @@
 package com.skintrading.skinhub.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity
 public class SteamInfo
 {
 	//Todo Inserir propriedades
+
+	@Id
+	@GeneratedValue
+	private Long id;
 	private String steamProfileName;
 	private String steamTradeLink;
 	private String steamProfileLink;
@@ -11,6 +20,10 @@ public class SteamInfo
 	
 	//Por enquanto não será usado pois será feito primeiramente com um loggin normal
 	
+	public Long getId(){
+		return this.id;
+	}
+
 	public String getSteamName()
 	{
 		return steamProfileName;

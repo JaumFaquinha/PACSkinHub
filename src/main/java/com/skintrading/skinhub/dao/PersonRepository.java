@@ -15,4 +15,6 @@ public interface PersonRepository extends CrudRepository<Person, Long>, PagingAn
 
     List<Person> findByName(String name);
 
+    List<Person> findById(int id);
+
 }

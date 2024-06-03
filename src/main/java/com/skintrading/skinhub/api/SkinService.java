@@ -1,5 +1,5 @@
 package com.skintrading.skinhub.api;
 
-public class BaseGunService {
-
+public class SkinService {
+    
 }

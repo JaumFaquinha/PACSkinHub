@@ -1,5 +1,5 @@
 package com.skintrading.skinhub.controller;
 
-public class BaseGunController {
-
+public class SkinController {
+    
 }
