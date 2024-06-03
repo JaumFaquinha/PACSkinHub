@@ -26,10 +26,6 @@ public class Skin {
 		this.wearValue = wearValue;
 	}
 
-	public float getWearLevel() {
-		return wearLevel;
-	}
-
 	public String getSkinMarketLink() {
 		return skinMarketLink;
 	}
