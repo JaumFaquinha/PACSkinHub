@@ -1,7 +1,5 @@
 package com.skintrading.skinhub.dto;
 
-
-
 public class NewPersonRequisition {
 
 	private String personName;

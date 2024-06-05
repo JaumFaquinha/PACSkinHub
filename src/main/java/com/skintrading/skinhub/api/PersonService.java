@@ -17,9 +17,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 
@@ -44,17 +47,33 @@ public class PersonService {
         return ResponseEntity.ok(personList);
     }
 
-    @GetMapping("/{id}")
-    public Person getMethodName(@PathVariable Long id) {
 
-        Optional<Person> result = personRepository.findById(id);
+    @GetMapping("/{id}")
+    public Person getPersonById(@PathVariable Long id) {
+
+       Optional<Person> result = personRepository.findById(id);
 
         if(result.isEmpty()){
-            String msg = "Person("+ id + ") not found!";
+            String msg = "Person("+ id + ") was not found!";
             throw new RuntimeException(msg);
         }
         return result.get();
     }
+
+
+    @GetMapping("/{name}")
+    public List<Person> getPersonByName(@RequestParam String name) {
+
+        List<Person> result = personRepository.findByName(name);
+
+        if(result == null ||result.isEmpty()){
+            String msg = "Person("+ name + ") was not found!";
+            throw new RuntimeException(msg);
+        }
+
+        return result;
+    }
+    
 
 
     @PostMapping
@@ -67,7 +86,7 @@ public class PersonService {
     
     
     @PutMapping("/{id}")
-    public ResponseEntity<Person> putMethodName(@PathVariable Long id, @RequestBody Person updatedPerson) {
+    public ResponseEntity<Person> updatePerson(@PathVariable Long id, @RequestBody Person updatedPerson) {
 
         Optional<Person> optPerson = personRepository.findById(id);
 

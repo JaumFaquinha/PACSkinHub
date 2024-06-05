@@ -3,7 +3,6 @@ package com.skintrading.skinhub;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +13,13 @@ import com.skintrading.skinhub.model.Skin;
 import com.skintrading.skinhub.model.Transaction;
 import com.skintrading.skinhub.dao.PersonRepository;
 import com.skintrading.skinhub.dao.SkinRepository;
-import com.skintrading.skinhub.dao.TransacitonRepository;
+import com.skintrading.skinhub.dao.TransactionRepository;
 
 @SpringBootTest
 public class TransactionTest {
 
     @Autowired
-    private TransacitonRepository transacitonRepository;
+    private TransactionRepository transacitonRepository;
 
     @Autowired
     private PersonRepository personRepository;

@@ -5,8 +5,6 @@ import org.springframework.stereotype.Controller;
 
 import com.skintrading.skinhub.dao.PersonRepository;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 
@@ -14,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/person")
 public class PersonController {
 
-    @Autowired
-    private PersonRepository personRepository;
+    // @Autowired
+    // private PersonRepository personRepository;
     
 //Retorna todos
     // @GetMapping("/")
