@@ -82,7 +82,7 @@ public class TransactionService {
         List<Transaction> transactions = transactionRepository.findBySellerId(sellerId);
 
         if(transactions.isEmpty()){
-            String msg = "Transaction with Buyer(" + sellerId + ") was not found!";
+            String msg = "Transaction with Seller(" + sellerId + ") was not found!";
             throw new RuntimeException(msg);
         }
 
@@ -103,6 +103,20 @@ public class TransactionService {
     }
 
 
+    @GetMapping("/buyer{buyerId}/seller{sellerId}")
+    public List<Transaction> getTransactionBySkinId(@PathVariable Long buyerId, @PathVariable Long sellerId) {
+
+        List<Transaction> transactions = transactionRepository.findSellerBuyerId(buyerId, sellerId);
+
+        if(transactions.isEmpty()){
+            String msg = "Transaction with Buyer(" + buyerId + ") and Seller(" + sellerId + ") was not found!";
+            throw new RuntimeException(msg);
+        }
+
+        return transactions;
+    }
+
+
     @PostMapping("/{buyerId}/{sellerId}/{skinId}/{amount}")
     public ResponseEntity<Transaction> createTransaction(@PathVariable Long buyerId, @PathVariable Long sellerId, @PathVariable Long skinId, @PathVariable Long amount) {
         
@@ -112,6 +126,7 @@ public class TransactionService {
         newTransaction.setSeller(personRepository.findById(sellerId).get());
         newTransaction.setSkin(skinRepository.findById(skinId).get());
         newTransaction.setTransactionTime(LocalDateTime.now());
+        newTransaction.setUpdatedDate(LocalDateTime.now());
         newTransaction.setAmount(amount);
 
         Transaction createdTransaction = transactionRepository.save(newTransaction);
@@ -138,7 +153,8 @@ public class TransactionService {
             transaction.setSeller(personRepository.findById(seller.getId()));
             transaction.setSkin(skinRepository.findById(skin.getId()).get());
             transaction.setAmount(updatedTransaction.getAmount());
-            transaction.setTransactionTime(updatedTransaction.getTransactionTime());
+            transaction.setTransactionTime(transaction.getTransactionTime());
+            transaction.setUpdatedDate(LocalDateTime.now());
 
             Transaction newTransaction = transactionRepository.save(transaction);
 

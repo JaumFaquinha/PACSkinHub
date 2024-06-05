@@ -28,6 +28,7 @@ public class Transaction {
     private Skin skin;
 
     private LocalDateTime transactionTime;
+    private LocalDateTime updatedDate;
     private double amount;
 
     // Getters e Setters
@@ -70,6 +71,18 @@ public class Transaction {
     public void setTransactionTime(LocalDateTime transactionTime) {
         this.transactionTime = transactionTime;
     }
+
+    public LocalDateTime getUpdatedDate(){
+		if(this.updatedDate == null){
+			this.updatedDate = LocalDateTime.now();
+		}
+
+		return this.updatedDate;
+	}
+
+	public void setUpdatedDate(LocalDateTime updatedDate){
+		this.updatedDate = updatedDate;
+	}
 
     public double getAmount() {
         return amount;

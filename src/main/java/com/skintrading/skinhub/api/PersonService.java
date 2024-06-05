@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -61,7 +62,7 @@ public class PersonService {
     }
 
 
-    @GetMapping("/{name}")
+    @GetMapping("/name?{name}")
     public List<Person> getPersonByName(@RequestParam String name) {
 
         List<Person> result = personRepository.findByName(name);
@@ -97,6 +98,8 @@ public class PersonService {
             person.setName(updatedPerson.getName());
             person.setEmail(updatedPerson.getEmail());
             person.setPassword(updatedPerson.getPassword());
+            person.setCreationDate(person.getCreationDate());
+            person.setUpdatedDate(LocalDateTime.now());
 
             Person newPerson = personRepository.save(person);
             return ResponseEntity.ok(newPerson);

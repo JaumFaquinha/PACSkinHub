@@ -1,5 +1,7 @@
 package com.skintrading.skinhub.model;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -16,6 +18,8 @@ public class Skin {
     private Double wearLevel; // Use the wrapper class for nullability.
     private Double price; // Use the wrapper class for nullability.
 	private EquipmentType equipmentType;
+    private LocalDateTime creationDate;
+    private LocalDateTime updatedDate;
 
    
 
@@ -99,6 +103,30 @@ public class Skin {
 
 	public void setEquipmentType(EquipmentType equipmentType) {
 		this.equipmentType = equipmentType;
+	}
+
+    public LocalDateTime getCreationDate(){
+		if(this.creationDate == null){
+			this.creationDate = LocalDateTime.now();
+		}
+
+		return this.creationDate;
+	}
+
+	public void setCreationDate(LocalDateTime creationDate){
+		this.creationDate = creationDate;
+	}
+
+    public LocalDateTime getUpdatedDate(){
+		if(this.updatedDate == null){
+			this.updatedDate = LocalDateTime.now();
+		}
+
+		return this.updatedDate;
+	}
+
+	public void setUpdatedDate(LocalDateTime updatedDate){
+		this.updatedDate = updatedDate;
 	}
 }
 

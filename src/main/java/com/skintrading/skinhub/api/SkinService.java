@@ -1,5 +1,6 @@
 package com.skintrading.skinhub.api;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -95,6 +96,8 @@ public class SkinService {
             skin.setSkinMarketLink(updatedSkin.getSkinMarketLink());
             skin.setWearLevel(updatedSkin.getWearLevel());
             skin.setWearValue(skin.getWearValue());
+            skin.setCreationDate(skin.getCreationDate());
+            skin.setUpdatedDate(LocalDateTime.now());
             
             Skin newSkin = skinRepository.save(skin);
             
